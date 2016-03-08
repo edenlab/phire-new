@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   def index
-    @user = User.new
-    @users = user.all
   end
 
   def show
   end
 
   def new
-    @cocktail = User.new
+    @user = User.new
   end
 
   def create
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(cocktail_params)
+    if @user.update(user_params)
       redirect_to user_path
     else
       render action: 'edit'
