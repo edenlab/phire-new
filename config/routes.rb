@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'photos/index'
+
   get 'booking/new'
 
   get 'booking/edit'
