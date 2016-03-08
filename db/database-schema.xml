@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: http://db.lewagon.org/ -->
+<sql>
+<datatypes db="sqlite">
+ <group label="Affinity">
+   <type label="Text" default="" length="1" sql="TEXT" quote="'" color="rgb(255,200,200)"/>
+   <type label="Numeric" default="0" length="0" sql="NUMERIC" quote="" color="rgb(238,238,170)"/>
+   <type label="Integer" default="0" length="0" sql="INTEGER" quote="" color="rgb(238,238,170)"/>
+   <type label="Real" default="0" length="0" sql="REAL" quote="" color="rgb(238,238,170)"/>
+   <type label="None" default="" length="0" sql="NONE" quote="" color="rgb(200,255,200)"/>
+ </group>
+</datatypes><table x="488" y="288" name="reviews">
+<row name="id" null="1" autoincrement="1">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="rating" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="booking_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="bookings" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="689" y="466" name="photos">
+<row name="id" null="1" autoincrement="1">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="photographer_id" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="name" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="specialty" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="223" y="446" name="bookings">
+<row name="id" null="1" autoincrement="1">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="date" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="photographer_id" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="status" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="message" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="494" y="617" name="users">
+<row name="id" null="1" autoincrement="1">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="name" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>'NULL'</default></row>
+<row name="email_adress" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="price" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="location" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="photographer" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
