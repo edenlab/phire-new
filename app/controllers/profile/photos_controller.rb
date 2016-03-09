@@ -3,7 +3,7 @@ module Profile
     before_action :find_photo, only: [:show, :edit, :update, :destroy]
 
     def index
-      @photos =  Photo.all
+      @photos =  current_user.photos.all
     end
 
     def show
@@ -42,7 +42,7 @@ module Profile
     private
 
     def photo_params
-      params.require(:photo).permit(:name, :specialty)
+      params.require(:photo).permit(:name, :specialty, :photo, :photo_cache)
     end
 
     def find_photo
