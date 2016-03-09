@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :photos
   has_many :bookings
-  validates :first_name, :last_name, :location, presence: :true
+  # validates :first_name, :last_name, :location, presence: :true
 end
