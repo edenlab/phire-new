@@ -1,4 +1,6 @@
 <h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
 
-<%= cl_image_tag("wn5wwlebw3vjjo2zztjo", width: 400, height: 400) %>
+<% @photos.each do |photo| %>
+<h2><%= photo.name %></h2>
+<%= image_tag @photo.photo.url(:bright_face) %>
+<% end %>

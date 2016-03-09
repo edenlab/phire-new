@@ -1,7 +1,12 @@
 module Profile
   class PhotosController < ApplicationController
+    before_action :find_photo, only: [:show, :edit, :update, :destroy]
+
     def index
       @photos =  Photo.all
+    end
+
+    def show
     end
 
     def new
