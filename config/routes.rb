@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :edit, :update, :delete]
 
   namespace :profile do
     resources :photos
