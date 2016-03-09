@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update, :delete]
 
   namespace :profile do
-    resources :photos
+    resources :photos, only: [:new]
     resources :bookings, only: [:index]
 
     resources :gigs, only: [:index] do
