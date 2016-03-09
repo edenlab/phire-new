@@ -2,6 +2,11 @@
 
 <h1>Welcome <%= @profile.first_name%>.</h1>
 
+<% if @profile.photographer? %>
+<%= "Which awesome pictures do you want to upload?" %>
+
+<% end %>
+
 <h3 class="padded">Here you can edit your profile picture and view current bookings/gigs. </h3>
 
 
