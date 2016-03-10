@@ -1,0 +1,10 @@
+<h1>Edit your booking</h1>
+
+<%= form_for([:photographer, @booking]) do |f| %>
+<%= f.label :date %>
+<%= f.text_field :date %>
+<%= f.label :message %>
+<%= f.text_field :message %>
+
+<%= f.submit %>
+  <% end %>
