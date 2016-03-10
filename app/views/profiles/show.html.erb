@@ -1,7 +1,7 @@
 <div class='text-center'> 
  <h1>Welcome <%= @profile.first_name%></h1>
  <h3> Here you can edit your profile picture and view current bookings/gigs. </h3>
- <%= link_to "edit my profile", edit_user_registration_path %>
+ <h6><%= link_to "edit my profile", edit_user_registration_path %></h6>
  <div id="map" style="width: 100%;height: 200px;"></div> 
  <% if @profile.photographer? %>
  <br>
@@ -25,17 +25,15 @@
  </div>
  <% end %>
  <% end %>
-
 </div>
 </div>
+<br>
 <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
 <section>
-  <footer>
    <%= @profile.first_name %>
    <%= @profile.last_name %>
    <%= @profile.location %>
     <%= @booking  %>
- </footer>
 </section>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript">
@@ -55,3 +53,4 @@
   });
 </script>
 </div>
+<%= render 'shared/footer' %>

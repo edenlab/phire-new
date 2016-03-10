@@ -6,7 +6,7 @@
       <h1>Upload your photos</h1>
       <%= simple_form_for(@photo, url: profile_photos_path) do |f| %>
       <%= f.input :name, placeholder: 'Give your photo a cool name' %>
- 
+
       <%= f.select :specialty, ['Wedding', 'Portraits', 'Panorama']%>
 
       <%= f.input :photo %>
@@ -15,8 +15,7 @@
       <% end %>
       <br>
       <br>
-      <%= link_to("No I do not want to add photo's, I am lazy", "../../profile" ) %>
-      
+      <a href="../../profile"  class="btn btn-primary btn-lg active" role="button">No I do not want to add photo's, I am lazy</a>
     </div>
   </aside>
 </section>
