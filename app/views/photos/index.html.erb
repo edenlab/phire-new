@@ -1,11 +1,6 @@
-<h1>Photos#index</h1>
-
-
+<h1>Photos</h1>
 
 <% @photos.each do |photo| %>
-
-  <% if @query == photo.specialty %>
-    <%= photo.name %><%= photo.specialty%>
-    <%= image_tag photo.photo.url(:standard) %>
-  <% end %>
+  <h2><%= photo.name %></h2>
+  <%= image_tag photo.photo.url(:standard) %>
 <% end %>

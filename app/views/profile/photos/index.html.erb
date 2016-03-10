@@ -1,6 +1,10 @@
 <h1>Photos</h1>
 
 <% @photos.each do |photo| %>
+
   <h2><%= photo.name %></h2>
+  <h2><%= photo.specialty %></h2>
   <%= image_tag photo.photo.url(:standard) %>
 <% end %>
+
+
