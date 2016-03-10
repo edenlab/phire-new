@@ -25,18 +25,32 @@
        </div>
      </div>
    </a>
- </div>
-  
+ </div> 
  <% end %>
  <% end %>
 </div>
 </div>
+
+<section class="no-padding" id="photoadd">
+  <aside class="bg-dark">
+    <div class="container text-center">
+      <h1>Bookings</h1>
+      <% @bookings.each do |booking| %>
+      <h2><%= booking.photographer.first_name %></h2>
+      <h2><%= booking.date %></h2>
+      <h2><%= booking.status %></h2>
+      <h2><%= booking.message %></h2>
+      <% end %>
+    </div>
+  </aside>
+</section>
+
 <section>
   <footer>
    <%= @profile.first_name %>
    <%= @profile.last_name %>
    <%= @profile.location %>
-    <%= @booking  %>
+   <%= @booking  %>
  </footer>
 </section>
 

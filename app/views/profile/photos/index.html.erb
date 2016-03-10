@@ -1,6 +1,7 @@
 <section class="no-padding" id="photoadd">
   <aside class="bg-dark">
     <div class="container text-center">
+    <%= link_to("Want to book this guy?", "../photographers/photographer_id/bookings/new" ) %>
     <h1>Portfolio</h1>
       <% @photos.each do |photo| %>
       <div class="container-fluid">
@@ -57,7 +58,9 @@
          <% end %>
        </div>
        <br>
+
        <%= link_to("Which awesome pictures do you want to upload?", "photos/new" ) %>
+
        <br>
      </aside>
    </section>
