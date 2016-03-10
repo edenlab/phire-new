@@ -1,20 +1,45 @@
 <div class='text-center'> 
- <h1>Welcome <%= @profile.first_name%>.</h1>
+ <h1>Welcome <%= @profile.first_name%></h1>
+ <h3> Here you can edit your profile picture and view current bookings/gigs. </h3>
  <div id="map" style="width: 100%;height: 200px;"></div> 
 
  <% if @profile.photographer? %>
  <%= link_to("Which awesome pictures do you want to upload?", "profile/photos/new" ) %>
  <br>
  <%= link_to("Wanna see all your photos", "profile/photos" ) %>
+ <% @profile.photos.each do |photo| %>
+ <div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-lg-4 col-sm-6">
+      <a href="#" class="portfolio-box">
+       <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
+       <div class="portfolio-box-caption">
+        <div class="portfolio-box-caption-content">
+          <div class="project-category text-faded">
+            <h2><%= photo.specialty %></h2>
+          </div>
+          <div class="project-name">
+           <h2><%= photo.name %></h2>
+         </div>
+       </div>
+     </div>
+   </a>
+ </div>
+  <%= link_to("Wanna EDIT everything on this awesome page?!?!", "profile/edit" ) %>
+ <% end %>
  <% end %> 
+</div>
+</div>
+<section>
+  <footer>
+   <%= @profile.first_name %>
+   <%= @profile.last_name %>
+   <%= @profile.location %>
+ </footer>
+</section>
 
- <h3 class="padded">Here you can edit your profile picture and view current bookings/gigs. </h3>
- <%= @profile.first_name %>
- <%= @profile.last_name %>
- <%= @profile.location %>
- 
- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
- <script type="text/javascript">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
   var myLatlng = new google.maps.LatLng(52.563093, 4.630674);
   var myOptions = {
     zoom: 16,
@@ -30,4 +55,5 @@
     title:"OpDeHoek"
   });
 </script>
+
 </div>
