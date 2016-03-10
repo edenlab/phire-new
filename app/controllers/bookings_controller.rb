@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     photographer_id = params["photographer_id"].to_i
     @booking.photographer = User.find(photographer_id)
     if @booking.save
-      redirect_to current_user.profile_path
+      redirect_to profile_path
     else
       render :new
     end
