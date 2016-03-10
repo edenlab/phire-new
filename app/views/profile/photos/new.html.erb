@@ -1,21 +1,20 @@
-
-<section class="no-padding" id="photoadd">
+<section class="no-padding" id="add">
   <aside class="bg-dark">
     <div class="container text-center">
-
-      <h1>Upload your photos</h1>
-      <%= simple_form_for(@photo, url: profile_photos_path) do |f| %>
-      <%= f.input :name, placeholder: 'Give your photo a cool name' %>
-
-      <%= f.select :specialty, ['Wedding', 'Portraits', 'Panorama']%>
-
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit %>
-      <% end %>
-      <br>
-      <br>
-      <a href="../../profile"  class="btn btn-primary btn-lg active" role="button">No I do not want to add photo's, I am lazy</a>
-    </div>
-  </aside>
-</section>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <h1>Upload your photos</h1>
+          <%= simple_form_for(@photo, url: profile_photos_path) do |f| %>
+          <%= f.input :name, placeholder: 'Give your photo a cool name' %>
+          <%= f.select :specialty, ['Wedding', 'Portraits', 'Panorama']%>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit %>
+          <% end %>
+          <br>
+          <br>
+          <a href="../../profile"  class="btn btn-primary btn-lg active" role="button">No I do not want to add photo's, I am lazy</a>
+        </div>
+      </div>
+    </aside>
+  </section>

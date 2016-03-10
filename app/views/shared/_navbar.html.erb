@@ -4,18 +4,16 @@
   <%#= image_tag "http://icons.iconseeker.com/png/64/hand-draw-iphone/camera-512x512.png" %>
   <%= image_tag "logo.png", alt: "Logo" %>
   <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
 
-
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
     <!-- Notification -->
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+    <%= link_to "profile/bookings", class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="badge-container">
       <i class="fa fa-envelope-o"></i>
       <div class="badge badge-blue">3</div>

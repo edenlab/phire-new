@@ -24,16 +24,15 @@
    </a>
  </div>
  <% end %>
+ <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
  <% end %>
 </div>
 </div>
 <br>
-<a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
 <section>
-   <%= @profile.first_name %>
-   <%= @profile.last_name %>
-   <%= @profile.location %>
-    <%= @booking  %>
+<div class='text-center'> 
+  <h3><%= @profile.first_name %> Here are all your bookings: <%= @booking %></h3>
+  </div>
 </section>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript">
@@ -53,4 +52,4 @@
   });
 </script>
 </div>
-<%= render 'shared/footer' %>
+
