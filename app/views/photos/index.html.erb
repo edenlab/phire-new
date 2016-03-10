@@ -1,11 +1,17 @@
-<h1>Photos</h1>
+
+<h1 class="text-center">Search Results</h1>
 
 
-
-
+<div class= 'container padded'>
+  <div class="row">
 <% @photos.each do |photo| %>
-      <%= photo.name %><%= photo.specialty%>
-    <%= cl_image_tag photo.photo.url(:standard) %>
-  <% end %>
-
-
+    <div class="col-xs-12 col-sm-6 col-xs-4">
+      <div class="card" style="background-image"><%= cl_image_tag photo.photo.url %>
+        <div class="card-category">
+          <%= photo.name %><%= photo.specialty%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
