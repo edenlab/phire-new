@@ -4,7 +4,8 @@
 
 <% @photos.each do |photo| %>
 
-  <% if @query == photo.specialty %>
+  <% if @query == photo.specialty%>
+    
     <%= photo.name %><%= photo.specialty%>
     <%= image_tag photo.photo.url(:standard) %>
   <% end %>
