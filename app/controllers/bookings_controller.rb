@@ -1,8 +1,8 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
   before_action :find_booking, only: [:edit, :update, :destroy]
 
   def index
-    @booking = Booking.all
+    @bookings = Booking.all
   end
 
   def new
@@ -11,11 +11,11 @@ class BookingController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
-      #redirection
-    else
-      render :new
-    end
+    # if @booking.save
+    #   #redirection
+    # else
+    #   render :new
+    # end
   end
 
   def edit

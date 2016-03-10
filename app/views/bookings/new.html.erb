@@ -1,2 +1,10 @@
-<h1>Booking#new</h1>
-<p>Find me in app/views/booking/new.html.erb</p>
+<h1>Book this photographer</h1>
+
+<%= form_for([:photographer, @booking]) do |f| %>
+<%= f.label :date %>
+<%= f.text_field :date %>
+<%= f.label :message %>
+<%= f.text_field :message %>
+
+<%= f.submit %>
+  <% end %>

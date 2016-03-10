@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :profile do
     resources :photos, only: [:new, :create, :index]
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :new, :create]
 
     resources :gigs, only: [:index] do
       member do
