@@ -1,10 +1,11 @@
 <h1>Photos</h1>
 
-<% @photos.each do |photo| %>
 
-  <% if @query == photo.specialty%>s   
-    <%= photo.name %><%= photo.specialty%>
-    <%= image_tag photo.photo.url(:standard) %>
+
+
+<% @photos.each do |photo| %>
+      <%= photo.name %><%= photo.specialty%>
+    <%= cl_image_tag photo.photo.url(:standard) %>
   <% end %>
-<% end %>
+
 
