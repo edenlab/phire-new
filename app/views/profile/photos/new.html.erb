@@ -4,16 +4,19 @@
     <div class="container text-center">
 
       <h1>Upload your photos</h1>
-
       <%= simple_form_for(@photo, url: profile_photos_path) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :specialty %>
+      <%= f.input :name, placeholder: 'Give your photo a cool name' %>
+ 
+      <%= f.select :specialty, ['Wedding', 'Portraits', 'Panorama']%>
+
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit %>
       <% end %>
-      <%= link_to("No I dont want to add photo's, I am lazy", "../../profile" ) %>
+      <br>
+      <br>
+      <%= link_to("No I do not want to add photo's, I am lazy", "../../profile" ) %>
       
-      </div>
+    </div>
   </aside>
 </section>

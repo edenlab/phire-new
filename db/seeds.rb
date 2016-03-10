@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   
 
-
+puts " Starting seed "
 
 50.times do 
   user = User.new(
@@ -33,3 +33,5 @@ end
   user.save!
 end
 
+
+puts " Ended Seed "
