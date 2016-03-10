@@ -11,11 +11,14 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # if @booking.save
-    #   #redirection
-    # else
-    #   render :new
-    # end
+    @booking.user = current_user
+    photographer_id = params["photographer_id"].to_i
+    @booking.photographer = User.find(photographer_id)
+    if @booking.save
+      redirect_to current_user.profile_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,7 +26,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    #redirection
+    # redirect_to current_user_path
   end
 
   def destroy
