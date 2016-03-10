@@ -1,9 +1,9 @@
 module Profile
   class BookingsController < ApplicationController
-  before_action :find_booking, only: [:edit, :update, :destroy]
+    before_action :find_booking, only: [:edit, :update, :destroy]
 
   def index
-      @bookings = Booking.all
+      @bookings = current_user.bookings
     end
 
   def edit
@@ -26,7 +26,7 @@ module Profile
     end
 
     def find_booking
-      @booking = Booking.find(params[:id])
+      @booking = current_user.bookings.find(params[:id])
     end
 
   end
