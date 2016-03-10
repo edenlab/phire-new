@@ -4,14 +4,12 @@
  <%= link_to "edit my profile", edit_user_registration_path %>
  <div id="map" style="width: 100%;height: 200px;"></div> 
  <% if @profile.photographer? %>
- <%= link_to("Which awesome pictures do you want to upload?", "profile/photos/new" ) %>
  <br>
- <%= link_to "Wanna see all your photos", "profile/photos", class: 'button' %>
  <% @profile.photos.each do |photo| %>
  <div class="container-fluid">
   <div class="row no-gutter">
     <div class="col-lg-4 col-sm-6">
-      <a href="#" class="portfolio-box">
+      <a href="profile/photos" class="portfolio-box">
        <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
        <div class="portfolio-box-caption">
         <div class="portfolio-box-caption-content">
@@ -27,8 +25,10 @@
  </div>
  <% end %>
  <% end %>
+
 </div>
 </div>
+<a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
 <section>
   <footer>
    <%= @profile.first_name %>
