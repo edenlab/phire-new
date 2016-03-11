@@ -1,10 +1,19 @@
-<h1>Book this photographer</h1>
 
-<%= form_for([:photographer, @booking]) do |f| %>
-<%= f.label :date %>
-<%= f.text_field :date %>
-<%= f.label :message %>
-<%= f.text_field :message %>
+<section class="no-padding" id="photoadd">
+  <aside class="bg-dark">
+    <div class="container text-center">
+      <h1>Book this photographer</h1>
 
-<%= f.submit %>
-  <% end %>
+      <%= form_for([:photographer, @booking]) do |f| %>
+      <%= f.label :date %>
+      <%= f.text_field :date %>
+      <%= f.label :message %>
+      <%= f.text_field :message %>
+
+      <%= f.submit %>
+      <% end %>
+      <br>
+      <a href="../../../profile/photos"  class="btn btn-primary btn-lg active" role="button">No I do not want to book this guy, I am lazy</a>
+    </div>
+  </aside>
+</section>
