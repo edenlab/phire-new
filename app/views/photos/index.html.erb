@@ -1,16 +1,20 @@
-<h1 class="text-center">Search Results</h1>
-
+<h1 class="text-center">Search Results for <%= @specialty%> </h1>
+<h2> <%= @photos.count %> Found </h2>
 
 <div class= 'container padded'>
   <div class="row">
+
 <% @photos.each do |photo| %>
-    <div class="col-xs-12 col-sm-6 col-xs-4">
-      <div class=`"card" style="<%= cl_image_tag photo.photo.url%>">
-        <div class="card-category">
-          <%= photo.name %><%= photo.specialty%>
+    <div class="col-xs-12 col-sm-6">
+      <div class="card" style="background-image: url(<%= cl_image_path photo.photo.url %>) ">
+
+        <%= link_to "", photographer_path(photo.user_id), class: "card-link" %>
+        <div class="card-description">
+          <%= photo.name %>
         </div>
       </div>
     </div>
     <% end %>
   </div>
-</div>
+</div
+
