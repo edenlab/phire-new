@@ -2,50 +2,52 @@
   <aside class="bg-dark">
     <div class="container text-center">
       <div class="row">
-          <div class='text-center'>
-           <h1>Welcome <%= @profile.first_name%></h1>
-           <h3> Here you can edit your profile picture and view current bookings/gigs. </h3>
-           <h6><%= link_to "edit my profile", edit_user_registration_path, data: { confirm: "Are you sure you want to edit your profile?" } %></h6>
-           <div id="map" style="width: 100%;height: 200px;"></div>
-           <% if @profile.photographer? %>
-           <br>
-           <% @profile.photos.each do |photo| %>
-           <div class="container-fluid">
-            <div class="row no-gutter">
-              <div class="col-lg-4 col-sm-6">
-                <a href="profile/photos" class="portfolio-box">
-                 <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
-                 <div class="portfolio-box-caption">
-                  <div class="portfolio-box-caption-content">
-                    <div class="project-category text-faded">
-                      <h2><%= photo.specialty %></h2>
-                    </div>
-                    <div class="project-name">
-                     <h2><%= photo.name %></h2>
-                   </div>
+        <div class='text-center'>
+         <h1>Welcome <%= @profile.first_name%></h1>
+         <h4> Here you can edit your profile picture and view current bookings/gigs. </h4>
+         <h6><%= link_to "edit my profile", edit_user_registration_path, data: { confirm: "Are you sure you want to edit your profile?" } %></h6>
+         
+         <% if @profile.photographer? %>
+         <br>
+         <% @profile.photos.each do |photo| %>
+         <div class="container-fluid">
+          <div class="row no-gutter">
+            <div class="col-lg-4 col-sm-6">
+              <a href="profile/photos" class="portfolio-box">
+               <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
+               <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    <h2><%= photo.specialty %></h2>
+                  </div>
+                  <div class="project-name">
+                   <h2><%= photo.name %></h2>
                  </div>
                </div>
-             </a>
-           </div>
-           <% end %>
-           <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
-           <% end %>
-          </div>
-          <div class="project-name">
-           <h2><%= photo.name %></h2>
+             </div>
+           </a>
          </div>
+         <% end %>
+         <% end %>
+       </div>
+       <div class="project-name">
        </div>
      </div>
-   </a>
- </div>
- <% end %>
- <% end %>
+   </div>
+ </a>
 </div>
 </div>
+</div>
+<br>
+<% if @profile.photographer? %>
+<a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
+<% end %>
 
-<section class="no-padding" id="photoadd">
+
+<section class="no-padding" id="bookings">
   <aside class="bg-dark">
     <div class="container text-center">
+
       <h1>Bookings</h1>
       <% @bookings.each do |booking| %>
       <h2><%= booking.photographer.first_name %></h2>
@@ -54,46 +56,20 @@
       <h2><%= booking.message %></h2>
       <% end %>
 
-      <h1>Gigs</h1>
+      <% if @profile.photographer?%>
+      <h1><%= "Gigs" %></h1>
       <% @gigs.each do |gig| %>
       <h2><%= gig.photographer.first_name %></h2>
       <h2><%= gig.date %></h2>
       <h2><%= gig.status %></h2>
       <h2><%= gig.message %></h2>
 
-        <% if gig.status == "pending" %>
-          <%= link_to "Accept", accept_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
-          <%= link_to "Decline", decline_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
-        <% end %>
-<% end %>
+      <% if gig.status == "pending" %>
+      <%= link_to "Accept", accept_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
+      <%= link_to "Decline", decline_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
+      <% end %>
+      <% end %>
+      <% end %>
     </div>
   </aside>
 </section>
-
-<section>
-  <footer>
-   <%= @profile.first_name %>
-   <%= @profile.last_name %>
-   <%= @profile.location %>
-   <%= @booking  %>
- </footer>
-</section>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-<script type="text/javascript">
-  var myLatlng = new google.maps.LatLng(52.563093, 4.630674);
-  var myOptions = {
-    zoom: 16,
-    center: myLatlng,
-    scrollwheel: false,
-    mapTypeId: google.maps.MapTypeId.SATELLITE,
-    styles: [{"featureType":"landscape","stylers":[{"saturation":-300},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":61},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
-  };
-  var map = new google.maps.Map(document.getElementById('map'), myOptions);
-  var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map,
-    title:"OpDeHoek"
-  });
-</script>
-
