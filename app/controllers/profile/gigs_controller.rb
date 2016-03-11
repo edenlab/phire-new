@@ -3,6 +3,8 @@ module Profile
     before_action :find_gig, only: [:accept, :decline]
 
     def index
+      @gigs = current_user.gigs
+
     end
 
     def accept

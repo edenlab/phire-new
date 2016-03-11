@@ -6,7 +6,6 @@
          <h1>Welcome <%= @profile.first_name%></h1>
          <h4> Here you can edit your profile picture and view current bookings/gigs. </h4>
          <h6><%= link_to "edit my profile", edit_user_registration_path, data: { confirm: "Are you sure you want to edit your profile?" } %></h6>
-         
          <% if @profile.photographer? %>
          <br>
          <% @profile.photos.each do |photo| %>
@@ -19,34 +18,31 @@
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
                     <h2><%= photo.specialty %></h2>
-                      </div>
-                        <div class="project-name">
-                      <h2><%= photo.name %></h2>
-                    </div>
+                  </div>
+                  <div class="project-name">
+                    <h2><%= photo.name %></h2>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
+          </div>
           <% end %>
-         <% end %>
+          <% end %>
         </div>
-       <div class="project-name">
       </div>
     </div>
   </div>
- </a>
+</a>
 </div>
 </div>
 </div>
-<br>
-<% if @profile.photographer? %>
-<a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
-<% end %>
-
 
 <section class="no-padding" id="bookings">
   <aside class="bg-dark">
     <div class="container text-center">
+      <% if @profile.photographer? %>
+      <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
+      <% end %>
       <h1>Bookings</h1>
       <% if current_user.bookings.blank? %>
       You dont have any bookings yet 
@@ -59,14 +55,12 @@
       <h2><%= booking.message %></h2>
       <% end %>
       <% end %>
-      
-
 
       <% if @profile.photographer?%>
       <h1><%= "Gigs" %></h1>
       <% end %>
       <% if current_user.gigs.blank? %>
-      You dont have any bookings yet 
+      You dont have any gigs yet 
       <% else %>
       <% @gigs.each do |gig| %>
       <h2><%= gig.photographer.first_name %></h2>
