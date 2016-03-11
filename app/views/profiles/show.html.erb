@@ -39,7 +39,6 @@
 </div>
 </div>
 <br>
-
 <% if @profile.photographer? %>
 <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
 <% end %>
@@ -60,6 +59,8 @@
       <h2><%= booking.message %></h2>
       <% end %>
       <% end %>
+      
+
 
       <% if @profile.photographer?%>
       <h1><%= "Gigs" %></h1>
