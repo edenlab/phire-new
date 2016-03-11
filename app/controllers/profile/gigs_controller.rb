@@ -3,17 +3,16 @@ module Profile
     before_action :find_gig, only: [:accept, :decline]
 
     def index
-      @gigs = current_user.gigs
     end
 
     def accept
       @accepted = @current_gig.update(status: "accepted") #voir enumerize pour le nom du status
-      redirect_to profile_gigs_path
+      redirect_to profile_path
     end
 
     def decline
       @decline = @current_gig.update(status: "declined") #voir enumerize pour le nom du status
-      redirect_to profile_gigs_path
+      redirect_to profile_path
     end
 
     private
