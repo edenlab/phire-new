@@ -1,12 +1,16 @@
 <section class="no-padding" id="photoadd">
   <aside class="bg-dark">
     <div class="container text-center">
+
+      <h1>Portfolio</h1>
+
     <%= link_to("Want to book this guy?", "../photographers/photographer_id/bookings/new" ) %>
     <h1>Portfolio</h1>
+
       <% @photos.each do |photo| %>
       <div class="container-fluid">
         <div class="row no-gutter">
-          <div class="col-lg-4 col-sm-6">
+          <div class="col-lg-4 col-md-4 col-sm-6">
             <a href="#" class="portfolio-box">
              <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
              <div class="portfolio-box-caption">
@@ -21,47 +25,11 @@
            </div>
          </a>
        </div>
-       <div class="container-fluid">
-        <div class="row no-gutter">
-          <div class="col-lg-4 col-sm-6">
-            <a href="#" class="portfolio-box">
-              <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    <h2><%= photo.specialty %></h2>
-                  </div>
-                  <div class="project-name">
-                   <h2><%= photo.name %></h2>
-                 </div>
-               </div>
-             </div>
-           </a>
-         </div>
-         <div class="container-fluid">
-          <div class="row no-gutter">
-            <div class="col-lg-4 col-sm-6">
-              <a href="#" class="portfolio-box">
-               <%= image_tag photo.photo.url(:standard, :width => 380, :height => 600) %>
-               <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    <h2><%= photo.specialty %></h2>
-                  </div>
-                  <div class="project-name">
-                   <h2><%= photo.name %></h2>
-                 </div>
-               </div>
-             </div>
-           </a>
-         </div>
-         <% end %>
-       </div>
-       <br>
-
-       <%= link_to("Which awesome pictures do you want to upload?", "photos/new" ) %>
-
-       <br>
-     </aside>
-   </section>
+       <% end %>
+     </div>
+     <br>
+     <a href="photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
+     <br>
+   </aside>
+ </section>
 
