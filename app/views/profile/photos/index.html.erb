@@ -4,8 +4,7 @@
 
       <h1>Portfolio</h1>
 
-    <%= link_to("Want to book this guy?", "../photographers/photographer_id/bookings/new" ) %>
-    <h1>Portfolio</h1>
+      <%= link_to("Want to book this guy?", "../photographers/photographer_id/bookings/new" ) %>
 
       <% @photos.each do |photo| %>
       <div class="container-fluid">
@@ -26,10 +25,10 @@
          </a>
        </div>
        <% end %>
-           <br>
-     <a href="photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
+       <br>
      </div>
+     <br>
+     <a href="photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
      <br>
    </aside>
  </section>
-
