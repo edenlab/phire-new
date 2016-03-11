@@ -3,8 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @specialty = params[:specialty]
-
-    @nearby_users = User.near(params[:location], 10)
+    @nearby_users = User.near(params[:location], 20)
     @photos = []
     @nearby_users.each do |user|
       @photos << user.photos.select{ |photo| photo.specialty == @specialty }

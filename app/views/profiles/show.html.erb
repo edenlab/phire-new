@@ -31,32 +31,56 @@
            <a href="profile/photos/new"  class="btn btn-primary btn-lg active" role="button">Add some more photos</a>
            <% end %>
           </div>
-          </div>
-          <br>
-          <section>
-          <div class='text-center'> 
-            <h3><%= @profile.first_name %> Here are all your bookings: <%= @booking %></h3>
-            </div>
-          </section>
-          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-          <script type="text/javascript">
-            var myLatlng = new google.maps.LatLng(52.563093, 4.630674);
-            var myOptions = {
-              zoom: 16,
-              center: myLatlng,
-              scrollwheel: false,
-              mapTypeId: google.maps.MapTypeId.SATELLITE,
-              styles: [{"featureType":"landscape","stylers":[{"saturation":-300},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":61},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
-            };
-            var map = new google.maps.Map(document.getElementById('map'), myOptions);
-            var marker = new google.maps.Marker({
-              position: myLatlng,
-              map: map,
-              title:"OpDeHoek"
-            });
-          </script>
-          </div>
-          </div>
-          </div>
-          
+          <div class="project-name">
+           <h2><%= photo.name %></h2>
+         </div>
+       </div>
+     </div>
+   </a>
+ </div> 
+ <% end %>
+ <% end %>
+</div>
+</div>
+
+<section class="no-padding" id="photoadd">
+  <aside class="bg-dark">
+    <div class="container text-center">
+      <h1>Bookings</h1>
+      <% @bookings.each do |booking| %>
+      <h2><%= booking.photographer.first_name %></h2>
+      <h2><%= booking.date %></h2>
+      <h2><%= booking.status %></h2>
+      <h2><%= booking.message %></h2>
+      <% end %>
+    </div>
+  </aside>
+</section>
+
+<section>
+  <footer>
+   <%= @profile.first_name %>
+   <%= @profile.last_name %>
+   <%= @profile.location %>
+   <%= @booking  %>
+ </footer>
+</section>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+  var myLatlng = new google.maps.LatLng(52.563093, 4.630674);
+  var myOptions = {
+    zoom: 16,
+    center: myLatlng,
+    scrollwheel: false,
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    styles: [{"featureType":"landscape","stylers":[{"saturation":-300},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":61},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+  };
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"OpDeHoek"
+  });
+</script>
 

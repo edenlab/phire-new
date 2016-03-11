@@ -1,7 +1,12 @@
 <section class="no-padding" id="photoadd">
   <aside class="bg-dark">
     <div class="container text-center">
+
       <h1>Portfolio</h1>
+
+    <%= link_to("Want to book this guy?", "../photographers/photographer_id/bookings/new" ) %>
+    <h1>Portfolio</h1>
+
       <% @photos.each do |photo| %>
       <div class="container-fluid">
         <div class="row no-gutter">
@@ -27,3 +32,4 @@
      <br>
    </aside>
  </section>
+
