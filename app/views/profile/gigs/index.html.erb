@@ -1,0 +1,15 @@
+<h1>Gigs</h1>
+
+<% @gigs.each do |gig| %>
+  <h2><%= gig.photographer.first_name %></h2>
+  <h2><%= gig.date %></h2>
+  <h2><%= gig.status %></h2>
+  <h2><%= gig.message %></h2>
+
+  <% if gig.status == "pending" %>
+    <%= link_to "Accept", accept_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
+    <%= link_to "Decline", decline_profile_gig_path(gig), method: :patch, data: { confirm: "Sure?"} %>
+  <% end %>
+<% end %>
+
+

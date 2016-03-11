@@ -22,6 +22,7 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem 'cloudinary'
 gem 'geocoder'
+gem 'enumerize'
 
 group :development, :test do
   gem 'binding_of_caller'
