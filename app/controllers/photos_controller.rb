@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @specialty = params[:specialty]
+    @location = params[:location]
     @nearby_users = User.near(params[:location], 20)
     user_ids = @nearby_users.map(&:id)
     @photos = Photo.where(specialty: @specialty, user_id: user_ids)
