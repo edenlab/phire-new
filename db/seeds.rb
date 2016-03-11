@@ -9,12 +9,14 @@
 
 puts " Starting seed "
 
+cities = ["Paris", "London", "Amsterdam", "Brussels"]
+
 50.times do 
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    location: Faker::Address.city,
+    location: cities.sample,
     password: Faker::Internet.password
     )
   user.save!
@@ -25,7 +27,7 @@ end
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    location: Faker::Address.city,
+    location: cities.sample,
     photographer: true,
     price: Faker::Commerce.price,
     password: Faker::Internet.password
