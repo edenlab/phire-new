@@ -9,11 +9,9 @@
 
           <div class= 'container padded'>
             <div class="row">
-
-              <% @photos.each do |photo| %>
               <div class="col-xs-12 col-sm-6">
+              <% @photos.each do |photo| %>
                 <div class="card" style="background-image: url(<%= cl_image_path photo.photo.url %>) ">
-
                   <%= link_to "", photographer_path(photo.user_id), class: "card-link" %>
                   <div class="card-description">
                     <%= photo.name %>
